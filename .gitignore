@@ -1,0 +1,10 @@
+# Ignore Python-related files
+backend/__pycache__/
+backend/venv/
+
+
+# Ignore Node.js dependencies
+frontend/openlayers-demo/node_modules
+
+
+# Ignore system files
