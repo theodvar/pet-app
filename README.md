@@ -12,20 +12,20 @@ venv\Scripts\activate  # For Windows
 # source venv/bin/activate  (For macOS/Linux)
 pip install -r requirements.txt
 python run.py
-```bash
+
 
 ### Frontend
-```bash
+
 cd frontend
 cd openlayers-demo
 npm install
 ng serve
-```bash
+
 
 ### Database
-```bash
+
 Open DBeaver.
-Click on "Database" ? "New Connection".
+Click on "Database" then "New Connection".
 Select PostgreSQL.
 Enter your connection details:
 Host: localhost
@@ -35,6 +35,6 @@ Username: postgres
 Password: postgres
 Click Finish to connect.
 Click on your PostgreSQL connection in DBeaver.
-Right-click and choose "SQL Editor" ? "New SQL Script".
+Right-click and choose "SQL Editor" then "New SQL Script".
 Copy and paste the script from the file dump-pets_db-202503021728.sql into the SQL editor.
 To execute everything, press CTRL + ENTER (or click the Execute button).
