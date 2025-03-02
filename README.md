@@ -16,7 +16,6 @@ python run.py
 ### Frontend
 
 cd frontend
-cd openlayers-demo
 npm install
 ng serve
 
