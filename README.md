@@ -9,7 +9,6 @@ This is a web application for pet owners, built with Flask (backend), Angular (f
 cd flask_backend
 python -m venv venv
 venv\Scripts\activate  # For Windows
-# source venv/bin/activate  (For macOS/Linux)
 pip install -r requirements.txt
 python run.py
 
