@@ -1,0 +1,310 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Pet API",
+      "description": "API for managing pet points of interest, dog walks, and dog parks",
+      "version": "1.0.0"
+    },
+    "host": "127.0.0.1:5000",
+    "schemes": ["http"],
+    "basePath": "/api",
+    "paths": {
+      "/petpointofinterest/": {
+        "get": {
+          "tags": ["PetPointOfInterest"],
+          "summary": "Get all pet points of interest",
+          "operationId": "getAllPetPoints",
+          "responses": {
+            "200": {
+              "description": "List of pet points"
+            }
+          }
+        },
+        "post": {
+          "tags": ["PetPointOfInterest"],
+          "summary": "Create a new pet point of interest",
+          "operationId": "createPetPoint",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/PetPointOfInterest"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Pet point created"
+            }
+          }
+        }
+      },
+      "/petpointofinterest/{id}": {
+        "get": {
+          "tags": ["PetPointOfInterest"],
+          "summary": "Get a pet point of interest by ID",
+          "operationId": "getPetPointById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet point details"
+            },
+            "404": {
+              "description": "Pet point not found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["PetPointOfInterest"],
+          "summary": "Update a pet point of interest",
+          "operationId": "updatePetPoint",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/PetPointOfInterest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Pet point updated"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["PetPointOfInterest"],
+          "summary": "Delete a pet point of interest",
+          "operationId": "deletePetPoint",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Pet point deleted"
+            }
+          }
+        }
+      },
+      "/dogwalks/": {
+        "get": {
+          "tags": ["DogWalks"],
+          "summary": "Get all dog walks",
+          "operationId": "getAllDogWalks",
+          "responses": {
+            "200": {
+              "description": "List of dog walks"
+            }
+          }
+        },
+        "post": {
+          "tags": ["DogWalks"],
+          "summary": "Create a new dog walk",
+          "operationId": "createDogWalk",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DogWalk"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Dog walk created"
+            }
+          }
+        }
+      },
+      "/dogwalks/{id}": {
+        "get": {
+          "tags": ["DogWalks"],
+          "summary": "Get a dog walk by ID",
+          "operationId": "getDogWalkById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Dog walk details"
+            },
+            "404": {
+              "description": "Dog walk not found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["DogWalks"],
+          "summary": "Update a dog walk",
+          "operationId": "updateDogWalk",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DogWalk"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Dog walk updated"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["DogWalks"],
+          "summary": "Delete a dog walk",
+          "operationId": "deleteDogWalk",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Dog walk deleted"
+            }
+          }
+        }
+      },
+      "/dogparks/": {
+        "get": {
+          "tags": ["DogParks"],
+          "summary": "Get all dog parks",
+          "operationId": "getAllDogParks",
+          "responses": {
+            "200": {
+              "description": "List of dog parks"
+            }
+          }
+        },
+        "post": {
+          "tags": ["DogParks"],
+          "summary": "Create a new dog park",
+          "operationId": "createDogPark",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DogPark"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Dog park created"
+            }
+          }
+        }
+      },
+      "/dogparks/{id}": {
+        "get": {
+          "tags": ["DogParks"],
+          "summary": "Get a dog park by ID",
+          "operationId": "getDogParkById",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Dog park details"
+            },
+            "404": {
+              "description": "Dog park not found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["DogParks"],
+          "summary": "Update a dog park",
+          "operationId": "updateDogPark",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/DogPark"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Dog park updated"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["DogParks"],
+          "summary": "Delete a dog park",
+          "operationId": "deleteDogPark",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Dog park deleted"
+            }
+          }
+        }
+      }
+    }
+  }  

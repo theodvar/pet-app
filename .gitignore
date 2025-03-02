@@ -1,10 +1,33 @@
-# Ignore Python-related files
+# ==============================
+# 🔥 Python (Flask Backend)
+# ==============================
 backend/__pycache__/
 backend/venv/
 
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+.env
+.env.local
+instance/
+db.sqlite3
+*.db
 
-# Ignore Node.js dependencies
-frontend/openlayers-demo/node_modules
+# ==============================
+# Angular (Frontend)
+# ==============================
+node_modules/
+dist/
+*.log
+.angular/
+*.env
+*.DS_Store
+frontend/openlayers-demo/.angular
 
 
-# Ignore system files
+# ==============================
+frontend/.vscode/
+frontend/openlayers-demo/.vscode
