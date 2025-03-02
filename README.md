@@ -8,7 +8,8 @@ This is a web application for pet owners, built with Flask (backend), Angular (f
 ```bash
 cd flask_backend
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate  # For Windows
+# source venv/bin/activate  (For macOS/Linux)
 pip install -r requirements.txt
 python run.py
 ```bash
@@ -17,5 +18,23 @@ python run.py
 ```bash
 cd frontend
 cd openlayers-demo
-nmp install
+npm install
 ng serve
+```bash
+
+### Database
+```bash
+Open DBeaver.
+Click on "Database" ? "New Connection".
+Select PostgreSQL.
+Enter your connection details:
+Host: localhost
+Port: 5432 (default PostgreSQL port)
+Database: pets_db
+Username: postgres
+Password: postgres
+Click Finish to connect.
+Click on your PostgreSQL connection in DBeaver.
+Right-click and choose "SQL Editor" ? "New SQL Script".
+Copy and paste the script from the file dump-pets_db-202503021728.sql into the SQL editor.
+To execute everything, press CTRL + ENTER (or click the Execute button).
