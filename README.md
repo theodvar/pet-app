@@ -6,8 +6,15 @@ This is a web application for pet owners, built with Flask (backend), Angular (f
 
 ### Backend
 ```bash
-cd backend
+cd flask_backend
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+venv\Scripts\activate
 pip install -r requirements.txt
-flask run
+python run.py
+
+### Frontend
+```bash
+cd frontend
+cd openlayers-demo
+nmp install
+ng serve
