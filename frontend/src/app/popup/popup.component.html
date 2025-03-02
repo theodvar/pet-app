@@ -1,0 +1,70 @@
+<div *ngIf="data" class="popup-container">
+  <a href="#" class="popup-closer" (click)="closePopup()">✖</a>
+
+  <div>
+    <p><strong>{{ data.name || data.title }}</strong></p>
+    <p *ngIf="data.category"><em>Category:</em> {{ data.category }}</p>
+    <p *ngIf="data.address || data.location"><em>Address:</em> {{ data.address || data.location }}</p>
+    <p *ngIf="data.city"><em>City:</em> {{ data.city }}</p>
+    <p *ngIf="data.comment"><em>Comment:</em> {{ data.comment }}</p>
+    <img *ngIf="data.image" [src]="data.image" alt="POI Image" width="100">
+
+    <button *ngIf="!editMode" class="button-edit" (click)="toggleEdit()">Edit</button>
+
+    <!-- Edit Form -->
+    <div *ngIf="editMode && data" class="edit-form">
+      <ng-container *ngIf="data.geometry.toLowerCase().includes('point')">
+        <label>Name:</label>
+        <input [(ngModel)]="updatedData.name">
+
+        <label>Category:</label>
+        <input [(ngModel)]="updatedData.category">
+
+        <label>Address:</label>
+        <input [(ngModel)]="updatedData.address">
+
+        <label>City:</label>
+        <input [(ngModel)]="updatedData.city">
+
+        <label>Comment:</label>
+        <textarea [(ngModel)]="updatedData.comment"></textarea>
+      </ng-container>
+
+      <ng-container *ngIf="data.geometry.toLowerCase().includes('polygon')">
+        <label>Title:</label>
+        <input [(ngModel)]="updatedData.title">
+
+        <label>Location:</label>
+        <input [(ngModel)]="updatedData.location">
+
+        <label>City:</label>
+        <input [(ngModel)]="updatedData.city">
+
+        <label>Comment:</label>
+        <textarea [(ngModel)]="updatedData.comment"></textarea>
+      </ng-container>
+
+
+      <ng-container *ngIf="data.geometry.toLowerCase().includes('linestring')">
+        <label>Title:</label>
+        <input [(ngModel)]="updatedData.title">
+
+        <label>Location:</label>
+        <input [(ngModel)]="updatedData.location">
+
+        <label>City:</label>
+        <input [(ngModel)]="updatedData.city">
+
+        <label>Comment:</label>
+        <textarea [(ngModel)]="updatedData.comment"></textarea>
+      </ng-container>
+
+      <!-- Buttons inside a container for spacing -->
+      <div class="button-container">
+        <button class="button-save" (click)="saveChanges()">Save</button>
+        <button class="button-cancel" (click)="toggleEdit()">Cancel</button>
+        <button class="delete-button"(click)="onDelete()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 # ==============================
-# 🔥 Python (Flask Backend)
+# Python (Flask Backend)
 # ==============================
 backend/__pycache__/
 backend/venv/
@@ -25,9 +25,8 @@ dist/
 .angular/
 *.env
 *.DS_Store
-frontend/openlayers-demo/.angular
+frontend/.angular
 
 
 # ==============================
 frontend/.vscode/
-frontend/openlayers-demo/.vscode

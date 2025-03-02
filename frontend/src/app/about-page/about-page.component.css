@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF6B3;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin-top: 30px;
+    background-color: #FFF6B3;
+    text-align: justify;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.contact-icons {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.map-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}

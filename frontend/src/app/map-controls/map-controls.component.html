@@ -1,0 +1,21 @@
+<div class="p-3">
+    <h3>Suggestions for Pets</h3>
+  
+    <!-- Bootstrap Dropdown -->
+    <label>Categories:</label>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="geometryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ selectedLabel }}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="geometryDropdown">
+        <li *ngFor="let type of geometryTypes">
+          <a class="dropdown-item" href="#" (click)="$event.preventDefault(); selectGeometry(type)">{{ getLabel(type) }}</a>
+        </li>
+      </ul>
+    </div>
+    
+  
+
+
+  </div>
+  

@@ -1,0 +1,117 @@
+<!-- draw-features.component.html -->
+<div class="container">
+  <div class="main-content">
+
+    <div class="=left-panel">
+      <app-map-controls (featureLoaded)="addFeatureLayer($event)"></app-map-controls>
+
+      <div class="p-3">
+        <h3>Insert a New Pet Suggestion</h3>
+        <label>Categories:</label>
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="drawTypeDropdown"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              {{ selectedLabel }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="drawTypeDropdown">
+              <li *ngFor="let type of drawTypes">
+                <a class="dropdown-item" href="#" (click)="$event.preventDefault(); selectDrawType(type)">{{
+                  getLabel(type) }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="btn btn-warning mt-2" (click)="undo()">Undo Last</button>
+      </div>
+
+
+      <!-- Form appears when user draws a geometry -->
+      <div *ngIf="showForm" class="form-container">
+        <h3 *ngIf="selectedGeometryType === 'POINT'">Enter POI Details</h3>
+        <h3 *ngIf="selectedGeometryType === 'LINESTRING' || selectedGeometryType === 'POLYGON'">Enter Feature Details
+        </h3>
+
+        <form>
+          <!-- Fields for POINT -->
+          <div *ngIf="selectedGeometryType === 'POINT'">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input id="name" type="text" [(ngModel)]="poiData.name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category:</label>
+              <input id="category" type="text" [(ngModel)]="poiData.category" name="category" required />
+            </div>
+
+            <div class="form-group">
+              <label for="address">Address:</label>
+              <input id="address" type="text" [(ngModel)]="poiData.address" name="address" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input id="city" type="text" [(ngModel)]="poiData.city" name="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Comment:</label>
+              <input id="comment" type="text" [(ngModel)]="poiData.comment" name="comment" required />
+            </div>
+          </div>
+
+          <!-- Fields for LINESTRING & POLYGON -->
+          <div *ngIf="selectedGeometryType === 'LINESTRING' || selectedGeometryType === 'POLYGON'">
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input id="title" type="text" [(ngModel)]="dwData.title" name="title" required />
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location:</label>
+              <input id="location" type="text" [(ngModel)]="dwData.location" name="location" required />
+            </div>
+
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input id="city" type="text" [(ngModel)]="dwData.city" name="city" required />
+            </div>
+
+            <div class="form-group">
+              <label for="comment">Comment:</label>
+              <input id="comment" type="text" [(ngModel)]="dwData.comment" name="comment" required />
+            </div>
+          </div>
+
+          <button (click)="submitForm()">Submit</button>
+        </form>
+      </div>
+      <!-- Refresh Map Section -->
+      <div class="p-3">
+        <h3>Refresh Map</h3>
+        <button class="btn btn-primary" (click)="refreshMap()">Refresh</button>
+      </div>
+
+      <app-popup 
+      *ngIf="popupData" 
+      [data]="popupData" 
+      [position]="popupPosition"   
+      [featureId]="popupData.id"
+      [featureGeometry]="popupData.geometry"
+      (featureDeleted)="handleFeatureDeleted()"></app-popup>
+    </div>
+
+    <div class="right-panel" #mapElement id="map">
+     
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
